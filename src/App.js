@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import ListOfSpaceXLaunches from './components/molecules/ListOfSpaceXLaunches';
+import styled from 'styled-components'
 
 function App() {
 
@@ -18,10 +19,18 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Upcoming SpaceX Launches</h1>
+      <StyledAppContainer>
+      <h1>SpaceX Launches in 2022 and beyond</h1>
       {spacexData.length > 0 && <ListOfSpaceXLaunches spacexData = {spacexData} />}
+      </StyledAppContainer>
     </div>
   );
 }
 
 export default App;
+
+const StyledAppContainer = styled.div`
+color: #fff;
+background-color: #262626;
+padding: 10px;
+`
