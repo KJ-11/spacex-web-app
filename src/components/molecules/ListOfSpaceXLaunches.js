@@ -1,12 +1,18 @@
+
 import React, { useState, useEffect } from 'react';
 import LaunchCard from '../atoms/LaunchCard'
 
+
+
 const ListOfSpaceXLaunches = ({ spacexData }) => {
+
+    const upcomingLaunches = spacexData.filter(launch => launch.upcoming === true);
+
     return (
         <>
-        {spacexData.length > 0 && spacexData.map(data => (
-            <LaunchCard LaunchData={data} />
-        ))}    
+            {upcomingLaunches.map(data => (
+                <LaunchCard launchData={data} key={data.flight_number}/>
+            ))}    
         </> 
     )
 }

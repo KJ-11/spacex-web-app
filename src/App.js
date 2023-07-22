@@ -7,7 +7,7 @@ function App() {
   const [spacexData, setSpacexData] = useState([]);
   
   const getSpacexData = async() => {
-    const response = await fetch('https://api.spacexdata.com/latest/launches');
+    const response = await fetch('https://api.spacexdata.com/v5/launches');
     const data = await response.json()
     setSpacexData(data);
   }
@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <h1>Upcoming SpaceX Launches</h1>
-      <ListOfSpaceXLaunches spacexData = {spacexData} />
+      {spacexData.length > 0 && <ListOfSpaceXLaunches spacexData = {spacexData} />}
     </div>
   );
 }
